@@ -5,13 +5,24 @@ function (queryDef) {
   'use strict';
 
   function ElasticQueryBuilder(options) {
-    this.timeField = options.timeField;
+    if (options.timeField.startsWith("noFilter(")) {
+      this.timeField=options.timeField.substring(9,options.timeField.length-1);
+      this.isFiltered = false;
+    } else {
+      this.timeField=options.timeField;
+      this.isFiltered = true;
+    }
+
     this.esVersion = options.esVersion;
   }
 
   ElasticQueryBuilder.prototype.getRangeFilter = function() {
     var filter = {};
-    filter[this.timeField] = {"gte": "$timeFrom", "lte": "$timeTo"};
+    if (this.isFiltered===true) {
+      filter[this.timeField]={gte:"$timeFrom",lte:"$timeTo"};
+    } else {
+      filter[this.timeField]={gte:0,lte:2465395273574};
+    }
 
     if (this.esVersion >= 2) {
       filter[this.timeField]["format"] = "epoch_millis";
