@@ -265,6 +265,23 @@ coreModule.directive('grafanaGraph', function($rootScope, timeSrv) {
           }
         };
 
+        // Start hack
+        if ($(window).width() > 800) {
+          panel.legend.rightSide = true;
+        } else {
+          panel.legend.rightSide = false;
+        }
+        if (panel.title.indexOf('$Metric') !== -1) {
+          if (ctrl.templateSrv.replace('$Metric', panel.scopedVars) === 'channelShare') {
+            panel.yaxes[0].format = 'percent';
+            panel.decimals = 2;
+          } else {
+            panel.yaxes[0].format = 'none';
+            panel.decimals = 0;
+          }
+        }
+        // End hack
+
         for (let i = 0; i < data.length; i++) {
           var series = data[i];
           series.data = series.getFlotPairs(series.nullPointMode || panel.nullPointMode);
