@@ -25,6 +25,7 @@ export class TimePickerCtrl {
   isOpen: boolean;
   isUtc: boolean;
   firstDayOfWeek: number;
+  minDate: any;
 
   /** @ngInject */
   constructor(private $scope, private $rootScope, private timeSrv) {
@@ -65,6 +66,8 @@ export class TimePickerCtrl {
     this.absolute = {fromJs: time.from.toDate(), toJs: time.to.toDate()};
     this.tooltip = this.dashboard.formatDate(time.from) + ' <br>to<br>';
     this.tooltip += this.dashboard.formatDate(time.to);
+    this.minDate = new Date();
+    this.minDate.setMonth(this.minDate.getMonth() - 3);
 
     // do not update time raw when dropdown is open
     // as auto refresh will reset the from/to input fields

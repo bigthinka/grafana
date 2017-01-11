@@ -12,7 +12,7 @@ export function inputDateDirective() {
 
       var fromUser = function (text) {
         if (text.indexOf('now') !== -1) {
-          if (!dateMath.isValid(text)) {
+          if (!dateMath.isValid(text) || dateMath.parse(text).toDate() < $scope.ctrl.minDate) {
             ngModel.$setValidity("error", false);
             return undefined;
           }
@@ -27,7 +27,7 @@ export function inputDateDirective() {
           parsed = moment(text, format);
         }
 
-        if (!parsed.isValid()) {
+        if (!parsed.isValid() || parsed.toDate() < $scope.ctrl.minDate) {
           ngModel.$setValidity("error", false);
           return undefined;
         }
