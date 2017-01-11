@@ -145,7 +145,7 @@ export class PanelCtrl {
     if (!this.fullscreen) { //  duplication is not supported in fullscreen mode
       menu.push({ text: 'Duplicate', click: 'ctrl.duplicate()', role: 'Editor' });
     }
-    menu.push({text: 'Share', click: 'ctrl.sharePanel(); dismiss();'});
+    //menu.push({text: 'Share', click: 'ctrl.sharePanel(); dismiss();'});
     return menu;
   }
 
