@@ -57,7 +57,7 @@
 }
 
 .navbar-brand-btn {
-  display: block;
+  display: none;
   position: relative;
   float: left;
   margin: 0;
@@ -106,7 +106,7 @@
   overflow: hidden;
   white-space: nowrap;
   float: left;
-  display: block;
+  display: none;
   margin: 0;
   font-size: 1.4em;
   border-right: 1px solid $tight-form-border;
