@@ -138,8 +138,8 @@ class GraphCtrl extends MetricsPanelCtrl {
   }
 
   onInitPanelActions(actions) {
-    actions.push({text: 'Export CSV (series as rows)', click: 'ctrl.exportCsv()'});
-    actions.push({text: 'Export CSV (series as columns)', click: 'ctrl.exportCsvColumns()'});
+    //actions.push({text: 'Export CSV (series as rows)', click: 'ctrl.exportCsv()'});
+   // actions.push({text: 'Export CSV (series as columns)', click: 'ctrl.exportCsvColumns()'});
     actions.push({text: 'Toggle legend', click: 'ctrl.toggleLegend()'});
   }
 
