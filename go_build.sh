@@ -1,11 +1,11 @@
 #/bin/bash
 # Because of GO build requirements must create a symlink to your git checked out code
 # So first 
-# mkdir /home/mark/git/grafana/src/github.com/grafana
-# ln -s /home/mark/git/grafana /home/mark/git/grafana/src/github.com/grafana/grafana
 
+export GOPATH="/home/${USER}/grafana420"
 
-export GOPATH="/home/mark/git/grafana"
+mkdir -p $GOPATH/src/github.com/grafana
+ln -s $GOPATH $GOPATH/src/github.com/grafana/grafana
 
 cd $GOPATH/src/github.com/grafana/grafana
 go run build.go setup
