@@ -55,11 +55,12 @@ export class AnnotationsSrv {
 
     if (panel && panel.alert) {
       return this.backendSrv.get('/api/annotations', {
+
         from: options.range.from.valueOf(),
         to: options.range.to.valueOf(),
         limit: 100,
         panelId: panel.id,
-        dashboardId: dashboard.id,
+        dashboardId: dashboard.id
       }).then(results => {
         return this.translateQueryResult({iconColor: '#AA0000', name: 'panel-alert'}, results);
       });
@@ -103,6 +104,21 @@ export class AnnotationsSrv {
 
     var annotations = _.filter(dashboard.annotations.list, {enable: true});
     var range = this.timeSrv.timeRange();
+
+    // HACK put series info into annotation query
+    var seriesList = options.seriesList || [];
+    var hiddenSeries = options.hiddenSeries || {};
+    var seriesActive = {};
+    for (var idx in seriesList) {
+      var cur = seriesList[idx];
+      if (cur.id in hiddenSeries && hiddenSeries[cur.id]) {
+        continue; // skip hidden series
+      }
+      seriesActive[''+cur.id] = {"color": cur.color,"id": cur.id };
+    }
+    for (var idx in annotations) {
+      annotations[idx].seriesActive = seriesActive;
+    }
 
     this.globalAnnotationsPromise = this.$q.all(_.map(annotations, annotation => {
       if (annotation.snapshotData) {

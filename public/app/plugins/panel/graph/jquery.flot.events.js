@@ -196,10 +196,14 @@ function ($, _, angular, Drop) {
       // map the eventType to a types object
       var eventTypeId = event.eventType;
 
-      if (this._types === null || !this._types[eventTypeId] || !this._types[eventTypeId].color) {
-        color = '#666';
+      if (event.annotation.colorOverride) {
+        color = event.annotation.colorOverride;
       } else {
-        color = this._types[eventTypeId].color;
+        if (this._types === null || !this._types[eventTypeId] || !this._types[eventTypeId].color) {
+          color = '#666';
+        } else {
+          color = this._types[eventTypeId].color;
+        }
       }
 
       if (this._types === null || !this._types[eventTypeId] || !this._types[eventTypeId].markerSize) {

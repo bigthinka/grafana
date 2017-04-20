@@ -148,6 +148,8 @@ class GraphCtrl extends MetricsPanelCtrl {
       dashboard: this.dashboard,
       panel: this.panel,
       range: this.range,
+      seriesList: this.seriesList,
+      hiddenSeries: this.hiddenSeries,
     });
     return super.issueQueries(datasource);
   }
@@ -161,6 +163,8 @@ class GraphCtrl extends MetricsPanelCtrl {
       dashboard: this.dashboard,
       panel: this.panel,
       range: this.range,
+      seriesList: this.seriesList,
+      hiddenSeries: this.hiddenSeries,
     });
     this.onDataReceived(snapshotData);
   }
