@@ -47,7 +47,6 @@ export class GenericDatasource {
         datasource: options.annotation.datasource,
         enable: options.annotation.enable,
         iconColor: options.annotation.iconColor,
-        seriesActive: options.annotation.seriesActive,
         query: query
       },
       rangeRaw: options.rangeRaw
@@ -80,8 +79,10 @@ export class GenericDatasource {
     return _.map(result.data, (d, i) => {
       if (d && d.text && d.value) {
         return { text: d.text, value: d.value };
+      } else if (_.isObject(d)) {
+        return { text: d, value: i};
       }
-      return { text: d, value: i };
+      return { text: d, value: d };
     });
   }
 

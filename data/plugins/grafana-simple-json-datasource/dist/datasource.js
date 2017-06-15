@@ -88,7 +88,7 @@ System.register(['lodash'], function (_export, _context) {
                 datasource: options.annotation.datasource,
                 enable: options.annotation.enable,
                 iconColor: options.annotation.iconColor,
-                seriesActive: options.annotation.seriesActive,
+		seriesActive: options.annotation.seriesActive,
                 query: query
               },
               rangeRaw: options.rangeRaw
@@ -123,8 +123,10 @@ System.register(['lodash'], function (_export, _context) {
             return _.map(result.data, function (d, i) {
               if (d && d.text && d.value) {
                 return { text: d.text, value: d.value };
+              } else if (_.isObject(d)) {
+                return { text: d, value: i };
               }
-              return { text: d, value: i };
+              return { text: d, value: d };
             });
           }
         }, {

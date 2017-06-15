@@ -1,6 +1,6 @@
 ## Simple JSON Datasource - a generic backend datasource
 
-More documentation about datasource plugins can be found in the [Docs](https://github.com/grafana/grafana/blob/master/docs/sources/plugins/datasources.md).
+More documentation about datasource plugins can be found in the [Docs](https://github.com/grafana/grafana/blob/master/docs/sources/plugins/developing/datasources.md).
 
 This also serves as a living example implementation of a datasource.
 
@@ -130,6 +130,14 @@ Example map response
 ``` javascript
 [ { "text" :"upper_25", "value": 1}, { "text" :"upper_75", "value": 2} ]
 ```
+
+### Dev setup
+
+This plugin requires node 6.10.0
+
+`npm install -g yarn`
+`yarn install`
+`npm run build`
 
 ### Changelog
 
