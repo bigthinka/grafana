@@ -2,6 +2,7 @@ text {
     font-family: proxima-nova, sans-serif;
     font-size: 10px;
     pointer-events: none;
+    fill: white;
 }
 
 g.arc path:hover {
@@ -14,7 +15,7 @@ g.arc path:hover {
     max-width: 150px;
     height: auto;
     padding: 10px;
-    background-color: white;
+    background-color: black;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -50,8 +51,8 @@ g.arc path:hover {
 }
 
 .legend rect {
-    fill:white;
-    stroke:white;
+    fill:black;
+    stroke:black;
 }
 
 .pieChart {
