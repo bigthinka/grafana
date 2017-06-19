@@ -1,0 +1,65 @@
+text {
+    font-family: proxima-nova, sans-serif;
+    font-size: 10px;
+    pointer-events: none;
+}
+
+g.arc path:hover {
+    fill: orange;
+}
+
+.psd3Tooltip {
+    position: fixed;
+    z-index: 1000000;
+    max-width: 150px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.psd3Hidden {
+    display: none;
+}
+
+.psd3Tooltip p {
+    margin: 0;
+    font-family: proxima-nova, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.table td.fit,
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.pieChart > svg {
+    display: block;
+    margin: auto;
+}
+#top10table > thead > tr > th, #top10table > tbody > tr > th, #top10table > tfoot > tr > th, #top10table > thead > tr > td, #top10table > tbody > tr > td, #top10table > tfoot > tr > td {
+    line-height: 1;
+}
+
+.legend rect {
+    fill:white;
+    stroke:white;
+}
+
+.pieChart {
+    min-height: 220px;
+    padding-top: 14px;
+}
+
+.pieChartLegend {
+    min-height: 220px;
+    margin-top: 25px;
+}
