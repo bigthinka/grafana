@@ -1,0 +1,70 @@
+<div class="editor-row">
+  <h5 class="section-heading">Drill Pie Options</h5>
+
+  <div class="section gf-form-group">
+    <h5 class="section-heading">Sizes</h5>
+    <div class="gf-form-inline">
+      <div class="gf-form">
+        <label class="gf-form-label width-9">Donut Radius
+          <tip>Radius of the donut centre section of pie</tip>
+        </label>
+        <input type="number" class="gf-form-input width-6" placeholder="10" data-placement="right"
+               ng-model="ctrl.panel.pieConfig.donutRadius" ng-change="ctrl.render()" ng-model-onblur>
+        <label class="gf-form-label width-9">Stroke Width
+          <tip>Gap between pie chunks</tip>
+        </label>
+        <input type="number" class="gf-form-input width-6" placeholder="2" data-placement="right"
+               ng-model="ctrl.panel.pieConfig.strokeWidth" ng-change="ctrl.render()" ng-model-onblur>
+
+      </div>
+    </div>
+    <div class="section gf-form-group">
+      <h5 class="section-heading">Coloring</h5>
+      <div class="gf-form-inline">
+        <div class="gf-form">
+          <label class="gf-form-label width-9">Stroke Color
+            <tip>Color between and around pie chunks</tip>
+          </label>
+        	<span class="gf-form-label">
+          	<spectrum-picker ng-model="ctrl.panel.pieConfig.strokeColor" ng-change="ctrl.render()"></spectrum-picker>
+        	</span>
+        </div>
+
+        <div class="gf-form">
+          <label class="gf-form-label width-9">Highlight
+            <tip>Color of the pie chunk when hovered over</tip>
+          </label>
+					<span class="gf-form-label">
+						<spectrum-picker ng-model="ctrl.panel.pieConfig.highlightColor" ng-change="ctrl.render()"></spectrum-picker>
+					</span>
+        </div>
+
+        <div class="gf-form">
+          <label class="gf-form-label width-9">Label Color
+            <tip>Color of the pies chuck labels</tip>
+          </label>
+					<span class="gf-form-label">
+						<spectrum-picker ng-model="ctrl.panel.pieConfig.labelColor" ng-change="ctrl.render()"></spectrum-picker>
+					</span>
+        </div>
+
+        <div class="gf-form">
+          <label class="gf-form-label width-9">Legend Color
+            <tip>Color of the pies legend</tip>
+          </label>
+					<span class="gf-form-label">
+						<spectrum-picker ng-model="ctrl.panel.pieConfig.legendColor" ng-change="ctrl.render()"></spectrum-picker>
+					</span>
+        </div>
+
+
+      </div>
+      <div class="section gf-form-group">
+        <h5 class="section-heading">Name Remapping</h5>
+        <div class="gf-form" ng-repeat="(key, value) in ctrl.panel.pieConfig.legendRemap">
+          <span class="gf-form-label">{{key}}</span><input type="text" ng-model="ctrl.panel.pieConfig.legendRemap[key]"
+                                                           ng-change="ctrl.render()" ng-model-onblur>
+        </div>
+      </div>
+    </div>
+</div>

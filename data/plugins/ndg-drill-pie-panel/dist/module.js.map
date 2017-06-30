@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/module.js"],"names":["D3DrillPiePanelCtrl"],"mappings":";;;;;;;;AAAQA,yB,SAAAA,mB;;;2BAGNA,mB","file":"module.js","sourcesContent":["import {D3DrillPiePanelCtrl} from  './ctrl';\n\nexport {\n  D3DrillPiePanelCtrl as PanelCtrl\n};\n"]}

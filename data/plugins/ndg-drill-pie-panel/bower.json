@@ -1,0 +1,26 @@
+{
+  "name": "ndg-drill-pie-panel",
+  "description": "D3-based drill Pie panel for Grafana",
+  "main": "",
+  "authors": [
+    "Mark Harris <mark.harris@neodatagroup.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "grafana d3 d3js"
+  ],
+  "homepage": "https://github.com/bigthinka/grafana-drill-pie-panel",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3":"3.5.6",
+    "lodash": "^4.15.0",
+    "font-awesome": "^4.6.3"
+  }
+}

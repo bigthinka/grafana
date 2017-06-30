@@ -1,0 +1,35 @@
+{
+    "type": "panel",
+    "name": "Drilldown Pie",
+    "id": "ndg-drill-pie-panel",
+    "info": {
+        "description": "D3-based Pie Drilldown panel for Grafana",
+        "author": {
+            "name": "Mark Harris(mark.harris@neodatagroup.com)",
+            "url": "https://github.com/bigthinka"
+        },
+        "keywords": ["pie", "panel"],
+        "logos": {
+            "small": "img/Logo_D3.svg",
+            "large": "img/Logo_D3.svg"
+        },
+        "links": [{
+            "name": "Project site",
+            "url": "https://github.com/bigthinka/grafana-drill-pie-panel"
+        }, {
+            "name": "MIT License",
+            "url": "https://github.com/bigthinka/grafana-drill-pie-panel/blob/master/LICENSE"
+        }],
+        "screenshots": [{
+            "name": "Showcase",
+            "path": "screenshots/default-gauge-w-threshold.png"
+        }],
+        "version": "0.0.1",
+        "updated": "2017-06-16"
+    },
+
+    "dependencies": {
+        "grafanaVersion": "3.x.x",
+        "plugins": []
+    }
+}
