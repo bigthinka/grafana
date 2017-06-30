@@ -86,9 +86,7 @@ class D3DrillPiePanelCtrl extends MetricsPanelCtrl {
       // just use the height...
       tmpPanelWidth = this.getPanelHeight();
       tmpPanelWidth -= 24;
-      if (tmpPanelWidth < 250) {
-        tmpPanelWidth = 250;
-      }
+
       return tmpPanelWidth;
       //var tmpPanelWidthCSS = $("div.panel").css("width");
       //var tmpPanelWidthPx = tmpPanelWidthCSS.replace("px","");
@@ -116,9 +114,7 @@ class D3DrillPiePanelCtrl extends MetricsPanelCtrl {
     }
     var actualHeight = parseInt(tmpPanelHeight);
     // grafana minimum height for a panel is 250px
-    if (actualHeight < 250) {
-      actualHeight = 250;
-    }
+
     return actualHeight;
   }
 
@@ -137,20 +133,16 @@ class D3DrillPiePanelCtrl extends MetricsPanelCtrl {
     this.panelWidth = this.getPanelWidth();
     this.panelHeight = this.getPanelHeight();
 
-    var margin = {top: 10, right: 0, bottom: 30, left: 0};
+    var margin = {top: 5, right: 0, bottom: 5, left: 0};
     var width = this.panelWidth;
     var height = this.panelHeight;
-
-    if (width > 217) {
-      width = 217;
-    }
 
     var minDim = height;
     if (height > width) {
       minDim = width;
     }
 
-    minDim = minDim -60;
+    minDim = minDim -30;
     height = minDim;
     width = minDim;
 
@@ -188,8 +180,11 @@ class D3DrillPiePanelCtrl extends MetricsPanelCtrl {
     if (this.data !== undefined && Array.isArray(this.data) && this.data.length > 0) {
       if (this.pie === null) {
         this.pie = new psd3.Pie(config);
-        this.pie.config.transitionDuration = 0;
+
       }
+      this.pie.config.transitionDuration = 0;
+      this.pie.config.height = height;
+      this.pie.config.width = width;
       this.pie.config.donutRadius = this.panel.pieConfig.donutRadius;
       this.pie.config.legendRemap =  this.panel.pieConfig.legendRemap;
       this.pie.config.stroke = this.panel.pieConfig.strokeColor;
