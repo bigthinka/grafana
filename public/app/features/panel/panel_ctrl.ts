@@ -150,7 +150,7 @@ export class PanelCtrl {
   }
 
   getExtendedMenu() {
-    var actions = [];
+    var actions = [{text: 'Panel JSON', click: 'ctrl.editPanelJson(); dismiss();'}];
     this.events.emit('init-panel-actions', actions);
     return actions;
   }

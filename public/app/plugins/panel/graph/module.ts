@@ -24,6 +24,7 @@ class GraphCtrl extends MetricsPanelCtrl {
   dataList: any = [];
   annotations: any = [];
   alertState: any;
+  isSignedIn: boolean;
 
   annotationsPromise: any;
   datapointsCount: number;
@@ -110,7 +111,7 @@ class GraphCtrl extends MetricsPanelCtrl {
   };
 
   /** @ngInject */
-  constructor($scope, $injector, private annotationsSrv) {
+  constructor($scope, $injector, private annotationsSrv, private contextSrv) {
     super($scope, $injector);
 
     _.defaults(this.panel, this.panelDefaults);
@@ -119,7 +120,7 @@ class GraphCtrl extends MetricsPanelCtrl {
     _.defaults(this.panel.xaxis, this.panelDefaults.xaxis);
 
     this.processor = new DataProcessor(this.panel);
-
+    this.isSignedIn = contextSrv.isSignedIn;
     this.events.on('render', this.onRender.bind(this));
     this.events.on('data-received', this.onDataReceived.bind(this));
     this.events.on('data-error', this.onDataError.bind(this));
@@ -138,9 +139,11 @@ class GraphCtrl extends MetricsPanelCtrl {
   }
 
   onInitPanelActions(actions) {
-    //actions.push({text: 'Export CSV (series as rows)', click: 'ctrl.exportCsv()'});
-   // actions.push({text: 'Export CSV (series as columns)', click: 'ctrl.exportCsvColumns()'});
-    actions.push({text: 'Toggle legend', click: 'ctrl.toggleLegend()'});
+    if (this.isSignedIn) {
+      actions.push({text: 'Export CSV (series as rows)', click: 'ctrl.exportCsv()'});
+      actions.push({text: 'Export CSV (series as columns)', click: 'ctrl.exportCsvColumns()'});
+      actions.push({text: 'Toggle legend', click: 'ctrl.toggleLegend()'});
+    }
   }
 
   issueQueries(datasource) {
